@@ -1,0 +1,64 @@
+# -*- coding : utf-8 -*-
+grade = []               # chengji
+viewpoint = []           # jidian
+gradepoint = []          # xuefen
+#level = []
+i = 0
+course = input('Please input the number of course:')
+totalpoint = 0
+totalxuefen = 0
+#预期计算10门课程的成绩
+while i < int(course):
+    g = input('Please input the %s grade:' % (i+1))   # chengji
+    v = input('Please input the %s view:' % (i+1))    # xuefen
+    grade.append(int(g))
+    gradepoint.append(int(v))
+    if int(g) >= 90 and int(g) <= 100:
+        lev = 'A'
+        vp = 4
+        viewpoint.append(float(vp))
+    elif int(g) >= 85 and int(g) <= 89:
+        lev = 'A-'
+        vp = 3.7
+        viewpoint.append(float(vp))
+    elif int(g) >= 82 and int(g) <= 84:
+        lev = 'B+'
+        vp = 3.3
+        viewpoint.append(float(vp))
+    elif int(g) >= 78 and int(g) <= 81:
+        lev = 'B'
+        vp = 3.0
+        viewpoint.append(float(vp))
+    elif int(g) >= 75 and int(g) <= 77:
+        lev = 'B-'
+        vp = 2.7
+        viewpoint.append(float(vp))
+    elif int(g) >= 71 and int(g) <= 74:
+        lev = 'C+'
+        vp = 2.3
+        viewpoint.append(float(vp))
+    elif int(g) >= 66 and int(g) <= 70:
+        lev = 'C'
+        vp = 2.0
+        viewpoint.append(float(vp))
+    elif int(g) >= 62 and int(g) <= 65:
+        lev = 'C-'
+        vp = 1.7
+        viewpoint.append(float(vp))
+    elif int(g) >= 60 and int(g) <= 61:
+        lev = 'D'
+        vp = 1.3
+        viewpoint.append(float(vp))
+    elif int(g) <60:
+        lev = 'F'
+        vp = 0
+        viewpoint.append(float(vp))
+    i += 1
+
+for x in range(0,len(grade)):
+    totalpoint += gradepoint[x] * viewpoint[x]
+    totalxuefen += gradepoint[x]
+
+ave = totalpoint/totalxuefen
+
+print('average point is %f' % ave)
